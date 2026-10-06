@@ -1,0 +1,38 @@
+{
+  "name": "reading-list",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "npm run db:setup",
+    "dev": "concurrently -n api,web -c blue,green \"tsx watch server/index.ts\" \"vite\"",
+    "build": "tsc -b && vite build",
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "db:generate": "drizzle-kit generate",
+    "db:setup": "tsx server/setup-db.ts"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "drizzle-orm": "^0.45.3",
+    "express": "^5.2.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "drizzle-kit": "^0.31.11",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
